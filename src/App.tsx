@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Hello from "./components/Hello/Hello";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
@@ -6,7 +5,6 @@ import Goodbye from "./components/Goodbye/Goodbye";
 import ProductCard from "./components/ProductCard/ProductCard";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
