@@ -7,9 +7,9 @@ interface Props {
 function ProfileCard(props: Props) {
   const { avatar, name, description } = props;
   return (
-    <div>
+    <div className="profile-card">
       <h2>{name}</h2>
-      <img src={avatar} alt={name} width={"200px"}/>
+      <img src={avatar} alt={name} width={"200px"} />
       <p>{description}</p>
     </div>
   );
