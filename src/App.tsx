@@ -15,7 +15,6 @@ function App() {
     name: "Jerry",
     description: "The Mous from cartoon",
   };
-  const secretNumber = 3;
   return (
     <>
       <p>Hello!</p>
