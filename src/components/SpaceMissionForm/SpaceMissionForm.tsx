@@ -1,10 +1,11 @@
 import { useState } from "react";
+import styles from "./SpaceMissionForm.module.css"
 
 export default function SpaceMissionForm() {
   const [astronautName, setAstronautName] = useState<string>("");
   const [planetName, setPlanetName] = useState<string>("Mars");
   return (
-    <div>
+    <div className={styles.container}>
       <label htmlFor="astronautName">Astronaut name </label>
       <input
         type="text"
@@ -13,7 +14,7 @@ export default function SpaceMissionForm() {
         onChange={(e) => setAstronautName(e.target.value)}
       />
       <label htmlFor="planetName"> Planet name </label>
-      <select name="planetName" id="astronautName" onChange={(e)=>setPlanetName(e.target.value)}>
+      <select name="planetName" id="planetName" onChange={(e)=>setPlanetName(e.target.value)}>
         <option value="Mars">Mars</option>
         <option value="Venus">Venus</option>
         <option value="Jupiter">Jupiter</option>

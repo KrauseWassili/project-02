@@ -8,6 +8,10 @@ import ProfileCard from "./components/ProfileCard/ProfileCard";
 import Counter from "./components/counter/Counter";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
+import EffectExample from "./components/EffectExample/EffectExample";
+import RandomJoke from "./components/RandomJoke/RandomJoke";
+import AgeByName from "./components/AgeByName/AgeByName";
+import GenderByName from "./components/GenderByName/GenderByName";
 
 function App() {
   const personalInfo = {
@@ -19,10 +23,17 @@ function App() {
     <>
       <p>Hello!</p>
 
-      <SpaceMissionForm />
+      <GenderByName />
+
+
+      <AgeByName />
+
 
       <Counter />
+      <RandomJoke />
+      <EffectExample />
 
+      <SpaceMissionForm />
       <WeightCalculator />
 
       <Tool />
