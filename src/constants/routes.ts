@@ -1,0 +1,16 @@
+export const ROUTES = {
+  HOME: "/",
+  RANDOM_JOKE: "/random-joke",
+  SPACE_MISSION: "/space-mission",
+  AGE_BY_NAME: "/age-by-name",
+  COUNTER: "/counter",
+  EFFECT_EXAMPLE: "/effect-exapmle",
+  WEIGHT_CALCULATOR: "/weight-calculator",
+  GENDER_BY_NAME: "/gender-by-name",
+  COHORT_68: "/cohort-68",
+  ABOUT: "/about",
+  CONTACT: "/contact",
+  ACCOUNT: "/account",
+  ACCOUNT_SETTINGS: "/account/settings",
+  ACCOUNT_USER: "/account/user",
+} as const;

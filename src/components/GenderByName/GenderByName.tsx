@@ -1,3 +1,7 @@
+//DRY - don't repeat yourself
+//KISS - keep it simple stupid
+//SOLID - 
+
 import { useState } from "react";
 import style from "./GenderByName.module.css";
 

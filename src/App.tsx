@@ -1,10 +1,3 @@
-import "./App.css";
-import Hello from "./components/Hello/Hello";
-import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
-import Goodbye from "./components/Goodbye/Goodbye";
-import ProductCard from "./components/ProductCard/ProductCard";
-import Tool from "./components/Tool/Tool";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
 import Counter from "./components/counter/Counter";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
@@ -12,42 +5,55 @@ import EffectExample from "./components/EffectExample/EffectExample";
 import RandomJoke from "./components/RandomJoke/RandomJoke";
 import AgeByName from "./components/AgeByName/AgeByName";
 import GenderByName from "./components/GenderByName/GenderByName";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import NotFound from "./pages/NotFount/NotFound";
+import MainLayout from "./layouts/MainLayout";
+import { ROUTES } from "./constants/routes";
+import Cohort68 from "./pages/Cohort68/Cohort68";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import AccountLayout from "./layouts/AccountLayout";
+import AccountSettings from "./pages/AccountSettings/AccountSettings";
+import Account from "./pages/Account/Account";
+import AccountUser from "./pages/AccountUser/AccountUser";
 
 function App() {
-  const personalInfo = {
-    avatar: "https://s3.stroi-news.ru/img/kartinki-s-personazhami-4.jpg",
-    name: "Jerry",
-    description: "The Mous from cartoon",
-  };
   return (
     <>
-      <p>Hello!</p>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path={ROUTES.GENDER_BY_NAME} element={<GenderByName />} />
+            <Route path={ROUTES.SPACE_MISSION} element={<SpaceMissionForm />} />
+            <Route path={ROUTES.AGE_BY_NAME} element={<AgeByName />} />
+            <Route path={ROUTES.COUNTER} element={<Counter />} />
+            <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
+            <Route path={ROUTES.EFFECT_EXAMPLE} element={<EffectExample />} />
+            <Route
+              path={ROUTES.WEIGHT_CALCULATOR}
+              element={<WeightCalculator />}
+            />
+            <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
+            <Route path={ROUTES.ABOUT} element={<About />} />
+            <Route path={ROUTES.CONTACT} element={<Contact />} />
 
-      <GenderByName />
-
-
-      <AgeByName />
-
-
-      <Counter />
-      <RandomJoke />
-      <EffectExample />
-
-      <SpaceMissionForm />
-      <WeightCalculator />
-
-      <Tool />
-      <Hello />
-      <Goodbye />
-      <PersonalGreeting name="Wassili" />
-      <PersonalGreeting name="John" />
-      <ProductCard
-        title="Opaeroo Paarungsspielzeug für Hunde"
-        image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT6dCWJhg_NWxlD6zuYn_a0CDMkebqD3IWtGcPHu6ZOhKs5KmI9eb9c6W41D6RlFy1PzLVs8pTI-JJDLThOPMEAbQ99Pg6ve69oNvUt2q6acOtAv5sXHBjIKvCMBLNNfxjN5sNTGIm3NQ&usqp=CAc"
-        price={86.99}
-      />
-
-      <ProfileCard {...personalInfo} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
+            <Route index element={<Account />} />
+            <Route
+              path={ROUTES.ACCOUNT_SETTINGS}
+              element={<AccountSettings />}
+            />
+            <Route
+              path={ROUTES.ACCOUNT_USER}
+              element={<AccountUser />}
+            />
+          </Route>
+        </Routes>
+      </HashRouter>
     </>
   );
 }
