@@ -17,6 +17,11 @@ import AccountLayout from "./layouts/AccountLayout";
 import AccountSettings from "./pages/AccountSettings/AccountSettings";
 import Account from "./pages/Account/Account";
 import AccountUser from "./pages/AccountUser/AccountUser";
+import Country from "./components/Country/Country";
+import ProductsList from "./pages/ProductsList/ProductsList";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import UsersList from "./pages/UsersList/UsersList";
+import UserPage from "./pages/UserPage/UserPage";
 
 function App() {
   return (
@@ -40,6 +45,12 @@ function App() {
             <Route path={ROUTES.CONTACT} element={<Contact />} />
 
             <Route path="*" element={<NotFound />} />
+            <Route path="/countries/:id/:slug" element={<Country />} />
+            <Route path="/products" element={<ProductsList />} />
+            <Route path="/products/:id" element={<ProductPage />} />
+            <Route path="/users" element={<UsersList />} />
+            <Route path="/users/:id" element={<UserPage />} />
+
           </Route>
           <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
             <Route index element={<Account />} />
