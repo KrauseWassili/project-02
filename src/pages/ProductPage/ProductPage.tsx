@@ -1,8 +1,7 @@
 import useProduct from "./useProduct";
 
-
 export default function ProductPage() {
-    const {product} = useProduct();
+  const { product } = useProduct();
   return (
     <div>
       ProductPage
