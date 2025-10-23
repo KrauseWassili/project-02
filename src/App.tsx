@@ -1,4 +1,3 @@
-import Counter from "./components/Counter/Counter";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
 import EffectExample from "./components/EffectExample/EffectExample";
@@ -22,6 +21,7 @@ import ProductsList from "./pages/ProductsList/ProductsList";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CatFacts from "./pages/CatFacts/CatFacts";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
