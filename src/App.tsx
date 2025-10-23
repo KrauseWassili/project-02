@@ -21,7 +21,7 @@ import ProductsList from "./pages/ProductsList/ProductsList";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CatFacts from "./pages/CatFacts/CatFacts";
-import Counter from "./components/Counter/Counter";
+import Counter from "./components/counter/Counter";
 
 function App() {
   return (
