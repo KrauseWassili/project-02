@@ -20,7 +20,6 @@ import AccountUser from "./pages/AccountUser/AccountUser";
 import Country from "./components/Country/Country";
 import ProductsList from "./pages/ProductsList/ProductsList";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import UsersList from "./pages/UsersList/UsersList";
 import UserPage from "./pages/UserPage/UserPage";
 import CatFacts from "./pages/CatFacts/CatFacts";
 

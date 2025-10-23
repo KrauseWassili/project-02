@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function useCounters(start: number) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(start);
   const [secretNumber, setSecretNumber] = useState(-3);
   function handlePlus() {
     setCount((prev) => prev + 1);
