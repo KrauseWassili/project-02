@@ -1,21 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import type { Product } from "../../types/Products";
+import useProduct from "./useProduct";
+
 
 export default function ProductPage() {
-  const { id } = useParams();
-  const [ product, setProduct ] = useState<Product | undefined>(undefined);
-
-  async function fetchProductById(id: string) {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`);
-    const data = await res.json();
-    setProduct(data);
-  }
-
-  useEffect(() => {
-    fetchProductById(id || "");
-  }, [id]);
-
+    const {product} = useProduct();
   return (
     <div>
       ProductPage

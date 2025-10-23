@@ -18,6 +18,7 @@ export default function UserPage() {
   return (
     <div>
       User page
+      user ?
       <h2>{user?.name}</h2> 
       <img src={user?.avatar} alt={user?.name} width="200px" /> 
       <p>id: {user?.id}</p>
@@ -25,6 +26,7 @@ export default function UserPage() {
       <p>email: {user?.email}</p>
       <p>creation at: {user?.creationAt}</p>
       <p>updated at: {user?.updatedAt}</p>
+      : null
     </div>
   );
 }

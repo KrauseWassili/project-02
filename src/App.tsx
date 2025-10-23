@@ -1,4 +1,4 @@
-import Counter from "./components/counter/Counter";
+import Counter from "./components/Counter/Counter";
 import WeightCalculator from "./components/WeightCalculator/WeightCalculator";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
 import EffectExample from "./components/EffectExample/EffectExample";
@@ -22,6 +22,7 @@ import ProductsList from "./pages/ProductsList/ProductsList";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import UsersList from "./pages/UsersList/UsersList";
 import UserPage from "./pages/UserPage/UserPage";
+import CatFacts from "./pages/CatFacts/CatFacts";
 
 function App() {
   return (
@@ -48,8 +49,9 @@ function App() {
             <Route path="/countries/:id/:slug" element={<Country />} />
             <Route path="/products" element={<ProductsList />} />
             <Route path="/products/:id" element={<ProductPage />} />
-            <Route path="/users" element={<UsersList />} />
+            {/* <Route path="/users" element={<Users />} /> */}
             <Route path="/users/:id" element={<UserPage />} />
+            <Route path="/cats" element={<CatFacts />} />
 
           </Route>
           <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>

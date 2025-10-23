@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Product } from "../../types/Products";
+import type { Product } from "../../types/Product";
 import { Link } from "react-router-dom";
 
 export default function ProductsList() {
@@ -20,9 +20,10 @@ export default function ProductsList() {
       ProductsList
       <ul>
         {products.map((p) => (
-          <li key={p.id}>{p.title}
-          <img src={p.images[0]} alt={p.title} width="200px"/>
-          <Link to={`/products/${p.id}`} >To product</Link>
+          <li key={p.id}>
+            {p.title}
+            <img src={p.images[0]} alt={p.title} width="200px" />
+            <Link to={`/products/${p.id}`}>To product</Link>
           </li>
         ))}
       </ul>
