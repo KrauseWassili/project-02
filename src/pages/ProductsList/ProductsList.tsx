@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
-import type { Product } from "../../types/Product";
 import { Link } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
 
 export default function ProductsList() {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { products, loading, message } = useProducts();
 
-  async function fetchProducts() {
-    const res = await fetch("https://api.escuelajs.co/api/v1/products");
-    const arr = await res.json();
-    setProducts(arr);
-  }
+  if (loading) return <p>Loading...</p>;
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  if (message) return <p>{message}</p>;
 
   return (
     <div>
@@ -22,7 +15,7 @@ export default function ProductsList() {
         {products.map((p) => (
           <li key={p.id}>
             {p.title}
-            <img src={p.images[0]} alt={p.title} width="200px" />
+            <img src={p.images[0]} alt={p.title} width={"200px"} />
             <Link to={`/products/${p.id}`}>To product</Link>
           </li>
         ))}

@@ -22,6 +22,11 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CatFacts from "./pages/CatFacts/CatFacts";
 import Counter from "./components/counter/Counter";
+import Parent from "./pages/Parent/Parent";
+import SigninPage from "./pages/SigninPage/SigninPage";
+import Profile from "./pages/Profile/Profile";
+import Categories from "./pages/Categories/Categories";
+import CreateCategory from "./pages/CreateCatigory/CreateCategory";
 
 function App() {
   return (
@@ -51,6 +56,10 @@ function App() {
             {/* <Route path="/users" element={<Users />} /> */}
             <Route path="/users/:id" element={<UserPage />} />
             <Route path="/cats" element={<CatFacts />} />
+            <Route path="/parent" element={<Parent />} />
+            <Route path="/signin" element={<SigninPage />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/categories/create" element={<CreateCategory />} />
 
           </Route>
           <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
