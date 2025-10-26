@@ -29,6 +29,7 @@ export default function CreateCategory() {
     } catch (err) {
       if (err instanceof Error) {
         setMessage(err.message);
+        console.log(message);
       }
     }
   }

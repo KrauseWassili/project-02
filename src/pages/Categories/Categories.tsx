@@ -44,6 +44,7 @@ export default function Categories() {
     } catch (err) {
       if (err instanceof Error) {
         setMessage(err.message);
+        console.log(message);
       }
     }
   }

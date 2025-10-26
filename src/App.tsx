@@ -24,7 +24,6 @@ import CatFacts from "./pages/CatFacts/CatFacts";
 import Counter from "./components/counter/Counter";
 import Parent from "./pages/Parent/Parent";
 import SigninPage from "./pages/SigninPage/SigninPage";
-import Profile from "./pages/Profile/Profile";
 import Categories from "./pages/Categories/Categories";
 import CreateCategory from "./pages/CreateCatigory/CreateCategory";
 
