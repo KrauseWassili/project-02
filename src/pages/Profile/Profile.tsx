@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import type { User } from "../../types/User";
+import { useEffect} from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 export default function Profile() {
-  const [user, setUser] = useState<User | undefined>(undefined);
+  const {user, setUser} = useAuth();
   
 
   async function fetchProfile() {

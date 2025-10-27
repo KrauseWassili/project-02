@@ -1,91 +1,58 @@
-import { useState } from "react";
-import { Field, Form, Formik } from "formik";
-import type { Category } from "../../types/Category_2";
+import { Formik, Form, Field } from "formik";
 import { useNavigate } from "react-router-dom";
-interface Values {
-  name: string;
-  image: string;
-}
-
-export default function CreateCategory() {
+import * as Yup from "yup";
+const CategorySchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  image: Yup.string()
+    .min(2, "Too Short!")
+    .url("Must be valid URL")
+    .required("Required"),
+});
+export const CreateCategory = () => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState("");
-  const [category, setCategory] = useState<Category | undefined>(undefined);
-
-  async function fetchCreateCategory(credentials: Values) {
-    try {
-      const res = await fetch("https://api.escuelajs.co/api/v1/categories/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      });
-      if (!res.ok) {
-        throw new Error("Failed to fetch products. Status: " + res.status);
-      }
-      const data = await res.json();
-      setCategory(data);
-    } catch (err) {
-      if (err instanceof Error) {
-        setMessage(err.message);
-        console.log(message);
-      }
+  const fetchCreateCategories = async (values: {
+    name: string;
+    image: string;
+  }) => {
+    const res = await fetch("https://api.escuelajs.co/api/v1/categories", {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
+    if (res.ok) {
+      navigate("/");
     }
-  }
+  };
   return (
     <div>
-      
-      <button
-        onClick={() => {
-          navigate("/categories");
-        }}
-      >
-        Back
-      </button>
-      <h3>Create new category:</h3>
-      
+      <h1>Create Category</h1>
       <Formik
         initialValues={{
           name: "",
           image: "",
         }}
-        onSubmit={(values: Values) => {
-          fetchCreateCategory(values);
+        validationSchema={CategorySchema}
+        validateOnChange={false}
+        onSubmit={(values) => {
+          fetchCreateCategories(values);
         }}
       >
-        <Form>
-          <label htmlFor="name">Name:</label>
-          <Field
-            name="name"
-            id="name"
-            type="text"
-            placeholder="Type the name"
-            size={40}
-          />
-          <label htmlFor="name">Image url:</label>
-          <Field
-            name="image"
-            id="image"
-            type="text"
-            placeholder="Enter the image url"
-            size={40}
-          />
-          <button type="submit">Submit</button>
-        </Form>
+        {({ errors, touched }) => (
+          <Form>
+            <Field name="name" />
+            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            <Field name="image" />
+            {errors.image && touched.image ? <div>{errors.image}</div> : null}
+            <button type="submit">Submit</button>
+          </Form>
+        )}
       </Formik>
-
-      {category ? (
-        <>
-          <h2>
-            The new category with name "{category?.name}" was successfully
-            created!
-          </h2>
-          <h2>Slug: {category?.slug}</h2>
-          <img src={category?.image} alt={category?.name} width="200px" />
-          <p>Id: {category?.id}</p>
-        </>
-      ) : null}
     </div>
   );
-}
+};

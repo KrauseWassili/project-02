@@ -8,7 +8,7 @@ export default function Counter() {
     handleClear,
     handleMinus,
     handlePlus,
-  } = useCounters(10);
+  } = useCounters();
 
   if (count === secretNumber)
     return (
@@ -18,6 +18,8 @@ export default function Counter() {
       </div>
     );
 
+
+    
   return (
     <div>
       {/* {count === secretNumber ? <div>Bingo</div> : null} */}

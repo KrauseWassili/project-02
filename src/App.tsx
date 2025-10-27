@@ -25,54 +25,61 @@ import Counter from "./components/counter/Counter";
 import Parent from "./pages/Parent/Parent";
 import SigninPage from "./pages/SigninPage/SigninPage";
 import Categories from "./pages/Categories/Categories";
-import CreateCategory from "./pages/CreateCatigory/CreateCategory";
+import { CreateCategory } from "./pages/CreateCatigory/CreateCategory";
+import { AuthProvider } from "./providers/AuthProvider";
+import { CountProvider } from "./providers/CountProvider";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
     <>
       <HashRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path={ROUTES.GENDER_BY_NAME} element={<GenderByName />} />
-            <Route path={ROUTES.SPACE_MISSION} element={<SpaceMissionForm />} />
-            <Route path={ROUTES.AGE_BY_NAME} element={<AgeByName />} />
-            <Route path={ROUTES.COUNTER} element={<Counter />} />
-            <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
-            <Route path={ROUTES.EFFECT_EXAMPLE} element={<EffectExample />} />
-            <Route
-              path={ROUTES.WEIGHT_CALCULATOR}
-              element={<WeightCalculator />}
-            />
-            <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
-            <Route path={ROUTES.ABOUT} element={<About />} />
-            <Route path={ROUTES.CONTACT} element={<Contact />} />
+        <AuthProvider>
+          <CountProvider>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path={ROUTES.GENDER_BY_NAME} element={<GenderByName />} />
+              <Route
+                path={ROUTES.SPACE_MISSION}
+                element={<SpaceMissionForm />}
+              />
+              <Route path={ROUTES.AGE_BY_NAME} element={<AgeByName />} />
+              <Route path={ROUTES.COUNTER} element={<Counter />} />
+              <Route path={ROUTES.RANDOM_JOKE} element={<RandomJoke />} />
+              <Route path={ROUTES.EFFECT_EXAMPLE} element={<EffectExample />} />
+              <Route
+                path={ROUTES.WEIGHT_CALCULATOR}
+                element={<WeightCalculator />}
+              />
+              <Route path={ROUTES.COHORT_68} element={<Cohort68 />} />
+              <Route path={ROUTES.ABOUT} element={<About />} />
+              <Route path={ROUTES.CONTACT} element={<Contact />} />
 
-            <Route path="*" element={<NotFound />} />
-            <Route path="/countries/:id/:slug" element={<Country />} />
-            <Route path="/products" element={<ProductsList />} />
-            <Route path="/products/:id" element={<ProductPage />} />
-            {/* <Route path="/users" element={<Users />} /> */}
-            <Route path="/users/:id" element={<UserPage />} />
-            <Route path="/cats" element={<CatFacts />} />
-            <Route path="/parent" element={<Parent />} />
-            <Route path="/signin" element={<SigninPage />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/categories/create" element={<CreateCategory />} />
-
-          </Route>
-          <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
-            <Route index element={<Account />} />
-            <Route
-              path={ROUTES.ACCOUNT_SETTINGS}
-              element={<AccountSettings />}
-            />
-            <Route
-              path={ROUTES.ACCOUNT_USER}
-              element={<AccountUser />}
-            />
-          </Route>
-        </Routes>
+              <Route path="*" element={<NotFound />} />
+              <Route path="/countries/:id/:slug" element={<Country />} />
+              <Route path="/products" element={<ProductsList />} />
+              <Route path="/products/:id" element={<ProductPage />} />
+              {/* <Route path="/users" element={<Users />} /> */}
+              <Route path="/users/:id" element={<UserPage />} />
+              <Route path="/cats" element={<CatFacts />} />
+              <Route path="/parent" element={<Parent />} />
+              <Route path="/signin" element={<SigninPage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/categories/create" element={<CreateCategory />} />
+            </Route>
+            <Route path={ROUTES.ACCOUNT} element={<AccountLayout />}>
+              <Route index element={<Account />} />
+              <Route
+                path={ROUTES.ACCOUNT_SETTINGS}
+                element={<AccountSettings />}
+              />
+              <Route path={ROUTES.ACCOUNT_USER} element={<AccountUser />} />
+            </Route>
+          </Routes>
+          </CountProvider>
+        </AuthProvider>
       </HashRouter>
     </>
   );

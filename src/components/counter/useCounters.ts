@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useCount } from "../../hooks/useCount";
 
-export default function useCounters(start: number) {
-  const [count, setCount] = useState(start);
+export default function useCounters() {
+  const {count, setCount} = useCount();
   const [secretNumber, setSecretNumber] = useState(-3);
   function handlePlus() {
     setCount((prev) => prev + 1);

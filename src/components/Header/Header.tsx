@@ -1,14 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import s from "./Header.module.css";
+import { useAuth } from "../../hooks/useAuth";
+import { useCount } from "../../hooks/useCount";
 
 const getClass = ({ isActive }: { isActive: boolean }) =>
   isActive ? s.activeLink : s.link;
 
 export default function Header() {
+  const {user} = useAuth();
+  const {count} = useCount();
   return (
     <>
       <header className={s.header}>
+        {count}
+        {user?.email}
         <nav>
           <NavLink
             to={ROUTES.HOME}
